@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MyDropDownNavigation</string>
+    <string-array name="colors">
+        <item>White</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+    </string-array>
+    <string name="action_settings">Settings</string>
+</resources>
