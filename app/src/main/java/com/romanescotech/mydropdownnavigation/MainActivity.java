@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String selectedColor = colors[pos];
         getWindow().getDecorView().setBackgroundColor(Color.parseColor(selectedColor));
         spinner.setBackgroundColor(Color.parseColor(selectedColor));
+        view.setBackgroundColor(Color.parseColor(selectedColor));
 
 
 
