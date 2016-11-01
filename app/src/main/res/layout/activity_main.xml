@@ -22,7 +22,8 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinnerMy" />
+            android:id="@+id/spinnerMy"
+            android:alpha=".8" />
 
 
     </android.support.design.widget.AppBarLayout>

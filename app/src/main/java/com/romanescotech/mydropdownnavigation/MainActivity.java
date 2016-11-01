@@ -18,11 +18,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     Spinner spinner;
     ArrayAdapter adapter;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -67,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String[] colors = getResources().getStringArray(R.array.colors);
         String selectedColor = colors[pos];
         getWindow().getDecorView().setBackgroundColor(Color.parseColor(selectedColor));
+        spinner.setBackgroundColor(Color.parseColor(selectedColor));
+
+
 
     }
     @Override
