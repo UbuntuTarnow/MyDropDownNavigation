@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         adapter = ArrayAdapter.createFromResource(this, R.array.colors, R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+        Log.d("Martin","onCreate");
 
     }
 
@@ -53,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        Log.d("Martin","onOptionsItemSelected");
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -64,18 +69,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
     @Override
     public void onItemSelected(AdapterView<?> parent , View view, int pos, long id) {
+        Log.d("Martin","onItemSelected");
         parent.getItemAtPosition(pos);
         String[] colors = getResources().getStringArray(R.array.colors);
         String selectedColor = colors[pos];
         getWindow().getDecorView().setBackgroundColor(Color.parseColor(selectedColor));
         spinner.setBackgroundColor(Color.parseColor(selectedColor));
         view.setBackgroundColor(Color.parseColor(selectedColor));
+        adapter.notifyDataSetChanged();
 
 
 
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+        Log.d("Martin","OnNothing Selected");
 //  Do nothing
     }
 }
